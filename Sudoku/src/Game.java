@@ -37,6 +37,10 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		
 		//minor grid lines
 		graphToBack.setColor(Color.gray);
+		for(int i = 0; i < 8; i++){
+			graphToBack.fillRect(95 + (100*i), 0, 10, 900);
+			graphToBack.fillRect(0, 95 + (100*i), 10, 900);
+		}
 		graphToBack.fillRect(95, 0, 10, 900);
 		graphToBack.fillRect(195, 0, 10, 900);
 		graphToBack.fillRect(395, 0, 10, 900);
