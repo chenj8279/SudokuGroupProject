@@ -7,12 +7,22 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public class Game extends Canvas implements KeyListener, Runnable{
-
+	
+	private Key kBoard;
+	private PlayerBoard pBoard;
+	//private Paddle selector;
+	private int spotX,spotY;
+	
 	private boolean[] keys;
 	private BufferedImage back;
 	
 	public Game (){
 		//set up game variables
+		kBoard = new Key();
+		pBoard = new PlayerBoard();
+		pBoard.addHints(kBoard);
+		
+		
 		
 		keys = new boolean[13]; //1-9 and arrow keys
 		
@@ -34,10 +44,9 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		
 		Graphics graphToBack = back.createGraphics();
 		
-		
 		//grid lines
 		graphToBack.setColor(Color.gray);
-		for(int i = 1; i < 10; i++) {
+		for(int i = 1; i < 9; i++) {
 			graphToBack.fillRect(i*110-10, 0, 10, 980);
 			graphToBack.fillRect(0, i*110-10, 980, 10);
 		}
@@ -47,12 +56,21 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		graphToBack.fillRect(0, 320, 980, 10);
 		graphToBack.fillRect(0, 650, 980, 10);
 		
+		graphToBack.setColor(Color.white);
 		//draw variables
+		for(int row = 0; row < pBoard.getLengthRow(); row++) {
+			for(int col = 0; col < pBoard.getLengthCol(); col++) {
+				if(pBoard.getNum(row, col) != 0) {
+					String add = "" + pBoard.getNum(row, col);
+					graphToBack.drawString(add, row*110, col*110);
+				}
+			}
+		}
 		
 		//check things
 		
 		
-		//draw everything
+		//draws everything
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 	
