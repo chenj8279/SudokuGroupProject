@@ -35,30 +35,17 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		Graphics graphToBack = back.createGraphics();
 		
 		
-		//minor grid lines
+		//grid lines
 		graphToBack.setColor(Color.gray);
-		for(int i = 0; i < 8; i++){
-			graphToBack.fillRect(95 + (100*i), 0, 10, 900);
-			graphToBack.fillRect(0, 95 + (100*i), 10, 900);
+		for(int i = 1; i < 10; i++) {
+			graphToBack.fillRect(i*110-10, 0, 10, 980);
+			graphToBack.fillRect(0, i*110-10, 980, 10);
 		}
-		graphToBack.fillRect(95, 0, 10, 900);
-		graphToBack.fillRect(195, 0, 10, 900);
-		graphToBack.fillRect(395, 0, 10, 900);
-		graphToBack.fillRect(495, 0, 10, 900);
-		graphToBack.fillRect(695, 0, 10, 900);
-		graphToBack.fillRect(795, 0, 10, 900);
-		graphToBack.fillRect(0, 95, 900, 10);
-		graphToBack.fillRect(0, 195, 900, 10);
-		graphToBack.fillRect(0, 295, 900, 10);
-		graphToBack.fillRect(0, 495, 900, 10);
-		graphToBack.fillRect(0, 595, 900, 10);
-		graphToBack.fillRect(0, 795, 900, 10);
-		//major grid lines
 		graphToBack.setColor(Color.lightGray);
-		graphToBack.fillRect(295, 0, 10, 900);
-		graphToBack.fillRect(595, 0, 10, 900);
-		graphToBack.fillRect(0, 295, 900, 10);
-		graphToBack.fillRect(0, 595, 900, 10);
+		graphToBack.fillRect(320, 0, 10, 980);
+		graphToBack.fillRect(650, 0, 10, 980);
+		graphToBack.fillRect(0, 320, 980, 10);
+		graphToBack.fillRect(0, 650, 980, 10);
 		
 		//draw variables
 		
