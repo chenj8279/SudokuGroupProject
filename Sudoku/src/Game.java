@@ -20,7 +20,17 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		//set up game variables
 		ansKey = new Key();
 		pBoard = new PlayerBoard();
-		pBoard.addHints(ansKey);
+		//adds the hints
+		for(int i = 0; i < 30; i++) {
+			int row = (int) Math.random()*pBoard.getLenRow();
+			int col = (int) Math.random()*pBoard.getLenCol();
+			
+			while(pBoard.getNum(row, col) != 0) {
+				row = (int) Math.random()*pBoard.getLenRow();
+				col = (int) Math.random()*pBoard.getLenCol();
+			}
+			pBoard.setNum(k.getNum(row, col), row, col);
+		}
 		
 		selector = new Block(10, 10, 100, 100, Color.WHITE);
 		spotX = 0;
