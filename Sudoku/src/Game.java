@@ -20,7 +20,7 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		//set up game variables
 		ansKey = new Key();
 		pBoard = new PlayerBoard();
-		//adds the hints
+		//adds hints
 		for(int i = 0; i < 30; i++) {
 			int row = (int) Math.random()*pBoard.getLenRow();
 			int col = (int) Math.random()*pBoard.getLenCol();
@@ -75,7 +75,7 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		graphToBack.fillRect(0, 0, 1000, 10);
 		graphToBack.fillRect(0, 990, 1000, 10);
 		
-		graphToBack.setColor(Color.white);
+		graphToBack.setColor(Color.WHITE);
 		
 		//check things
 		//move
