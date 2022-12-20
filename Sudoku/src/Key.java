@@ -3,9 +3,6 @@ public class Key extends Board{
 	
 	public Key() {
 		super();
-	}
-	
-	public void createKey() {
 		int[][] ans = new int[][] {
 			{8,1,6,2,4,5,3,7,9},
 			{4,7,3,8,1,9,5,2,6},
@@ -20,7 +17,7 @@ public class Key extends Board{
 		
 		for(int row = 0; row < getLenRow(); row++) 
 			for(int col = 0; col < getLenCol(); col++) 
-				setNum(ans[row][col], row, col);	
+				setNum(ans[row][col], row, col);
 	}
 	
 }
