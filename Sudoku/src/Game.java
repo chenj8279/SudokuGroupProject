@@ -19,23 +19,11 @@ public class Game extends Canvas implements KeyListener, Runnable{
 	public Game (){
 		//set up game variables
 		ansKey = new Key();
-		pBoard = new PlayerBoard();
-		//adds hints
-		for(int i = 0; i < 30; i++) {
-			int row = (int) Math.random()*pBoard.getLenRow();
-			int col = (int) Math.random()*pBoard.getLenCol();
-			
-			while(pBoard.getNum(row, col) != 0) {
-				row = (int) Math.random()*pBoard.getLenRow();
-				col = (int) Math.random()*pBoard.getLenCol();
-			}
-			pBoard.setNum(k.getNum(row, col), row, col);
-		}
+		pBoard = new PlayerBoard(ansKey);
 		
 		selector = new Block(10, 10, 100, 100, Color.WHITE);
 		spotX = 0;
 		spotY = 0;
-		
 		
 		keys = new boolean[13]; //1-9 and arrow keys
 		
@@ -77,7 +65,6 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		
 		graphToBack.setColor(Color.WHITE);
 		
-		//check things
 		//move
 		if(keys[9] == true && selector.getX() > 10) {
 			selector.moveLeft(graphToBack);
@@ -149,11 +136,14 @@ public class Game extends Canvas implements KeyListener, Runnable{
 			keys[8] = false;
 		}
 		
+		//check if input matches key; change color to red if it doesn't
+		
 		//draw variables
 		graphToBack.setColor(Color.white);
 		for(int row = 0; row < pBoard.getLenRow(); row++) {
 			for(int col = 0; col < pBoard.getLenCol(); col++) {
 				if(pBoard.getNum(row, col) != 0) {
+					//change font; move into box
 					String add = "" + pBoard.getNum(row, col);
 					graphToBack.drawString(add, row*110+10, col*110+10);
 				}
