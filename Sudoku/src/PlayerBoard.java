@@ -8,9 +8,9 @@ public class PlayerBoard extends Board{
 	public PlayerBoard(Key k) {
 		super();
 		
-		//int row = 0;
-		//int col = 0;
-		//int count = 0;
+		/*int row = 0;
+		int col = 0;
+		int count = 0;*/
 		
 		for(int i = 0; i < 30; i++) {
 			
