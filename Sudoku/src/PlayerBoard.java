@@ -18,12 +18,12 @@ public class PlayerBoard extends Board{
 			int ranCol = (int) Math.random()*super.getLenCol();
 			
 			if(super.getNum(ranRow, ranCol) != 0) {
-				for(int r = ranRow; r < super.getLenRow(); r++) {
+				outer : for(int r = ranRow; r < super.getLenRow(); r++) {
 					for(int c = ranCol; c < super.getLenCol(); c++) {
 						if(super.getNum(ranRow, ranCol) == 0) {
 							ranRow = r;
 							ranCol = c;
-							break;
+							break outer;
 						}
 					}
 				}
