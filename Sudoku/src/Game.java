@@ -21,9 +21,12 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		ansKey = new Key();
 		pBoard = new PlayerBoard(ansKey);
 		
+		System.out.print(pBoard);
+		
 		selector = new Block(10, 10, 100, 100, Color.WHITE);
 		spotX = 0;
 		spotY = 0;
+		
 		
 		keys = new boolean[13]; //1-9 and arrow keys
 		
@@ -65,6 +68,7 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		
 		graphToBack.setColor(Color.WHITE);
 		
+		//check things
 		//move
 		if(keys[9] == true && selector.getX() > 10) {
 			selector.moveLeft(graphToBack);
@@ -92,47 +96,48 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		
 		//nums
 		if(keys[0]) {
-			pBoard.setNum(1, spotX, spotY);
+			pBoard.setNum(1, spotY, spotX);
 			keys[0] = false;
 		}
 		
 		if(keys[1]) {
-			pBoard.setNum(2, spotX, spotY);
+			pBoard.setNum(2, spotY, spotX);
 			keys[1] = false;
 		}
 		
 		if(keys[2]) {
-			pBoard.setNum(3, spotX, spotY);
+			pBoard.setNum(3, spotY, spotX);
 			keys[2] = false;
 		}
 		
 		if(keys[3]) {
-			pBoard.setNum(4, spotX, spotY);
+			pBoard.setNum(4, spotY, spotX);
 			keys[3] = false;
 		}
 		
 		if(keys[4]) {
-			pBoard.setNum(5, spotX, spotY);
+			pBoard.setNum(5, spotY, spotX);
 			keys[4] = false;
 		}
 		
 		if(keys[5]) {
-			pBoard.setNum(6, spotX, spotY);
+			pBoard.setNum(6, spotY, spotX);
 			keys[5] = false;
 		}
 		
 		if(keys[6]) {
-			pBoard.setNum(7, spotX, spotY);
+			pBoard.setNum(7, spotY, spotX);
 			keys[6] = false;
 		}
 		
 		if(keys[7]) {
-			pBoard.setNum(8, spotX, spotY);
+			pBoard.setNum(8, spotY, spotX);
 			keys[7] = false;
+			System.out.print(pBoard);
 		}
 		
 		if(keys[8]) {
-			pBoard.setNum(9, spotX, spotY);
+			pBoard.setNum(9, spotY, spotX);
 			keys[8] = false;
 		}
 		
@@ -143,9 +148,8 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		for(int row = 0; row < pBoard.getLenRow(); row++) {
 			for(int col = 0; col < pBoard.getLenCol(); col++) {
 				if(pBoard.getNum(row, col) != 0) {
-					//change font; move into box
 					String add = "" + pBoard.getNum(row, col);
-					graphToBack.drawString(add, row*110+10, col*110+10);
+					graphToBack.drawString(add, col*110+10, row*110+10);
 				}
 			}
 		}

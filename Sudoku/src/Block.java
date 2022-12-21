@@ -2,9 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Block {
-
-
-
+	
 	private int xPos = 0;
 	private int yPos = 0;
 	private int width = 100;

@@ -30,4 +30,15 @@ public class Board {
 		return b;
 	}
 	
+	public String toString() {
+		String out = "";
+		for(int row = 0; row < b.length; row++) {
+			for(int col = 0; col < b[row].length; col++) {
+				out += b[row][col];
+			}
+			out += "\n";
+		}
+		return out;
+	}
+	
 }
