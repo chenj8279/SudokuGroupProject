@@ -22,9 +22,8 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		ansKey = new Key();
 		pBoard = new PlayerBoard(ansKey);
 		
-		System.out.print(pBoard);
-		
-		selector = new Block(10, 10, 100, 100, Color.WHITE);
+		Color selectorColor = new Color(211, 211, 211, 50);
+		selector = new Block(10, 10, 100, 100, selectorColor);
 		spotX = 0;
 		spotY = 0;
 		
@@ -97,47 +96,47 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		
 		//nums
 		if(keys[0]) {
-			pBoard.setNum(1, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(1, spotY, spotX);
 			keys[0] = false;
 		}
 		
 		if(keys[1]) {
-			pBoard.setNum(2, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(2, spotY, spotX);
 			keys[1] = false;
 		}
 		
 		if(keys[2]) {
-			pBoard.setNum(3, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(3, spotY, spotX);
 			keys[2] = false;
 		}
 		
 		if(keys[3]) {
-			pBoard.setNum(4, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(4, spotY, spotX);
 			keys[3] = false;
 		}
 		
 		if(keys[4]) {
-			pBoard.setNum(5, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(5, spotY, spotX);
 			keys[4] = false;
 		}
 		
 		if(keys[5]) {
-			pBoard.setNum(6, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(6, spotY, spotX);
 			keys[5] = false;
 		}
 		
 		if(keys[6]) {
-			pBoard.setNum(7, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(7, spotY, spotX);
 			keys[6] = false;
 		}
 		
 		if(keys[7]) {
-			pBoard.setNum(8, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(8, spotY, spotX);
 			keys[7] = false;
 		}
 		
 		if(keys[8]) {
-			pBoard.setNum(9, spotY, spotX);
+			if(pBoard.getNum(spotY, spotX) != ansKey.getNum(spotY, spotX)) pBoard.setNum(9, spotY, spotX);
 			keys[8] = false;
 		}
 		
@@ -148,6 +147,8 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		for(int row = 0; row < pBoard.getLenRow(); row++) {
 			for(int col = 0; col < pBoard.getLenCol(); col++) {
 				if(pBoard.getNum(row, col) != 0) {
+					if(pBoard.getNum(row, col) == ansKey.getNum(row, col)) graphToBack.setColor(Color.WHITE);
+					else graphToBack.setColor(Color.RED);
 					String add = "" + pBoard.getNum(row, col);
 					graphToBack.setFont(new Font("TimesRoman", Font.PLAIN, 100));
 					graphToBack.drawString(add, (col)*110+30, (row+1)*110-15);
