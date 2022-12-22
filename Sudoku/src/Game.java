@@ -1,5 +1,6 @@
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -133,7 +134,6 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		if(keys[7]) {
 			pBoard.setNum(8, spotY, spotX);
 			keys[7] = false;
-			System.out.print(pBoard);
 		}
 		
 		if(keys[8]) {
@@ -144,12 +144,13 @@ public class Game extends Canvas implements KeyListener, Runnable{
 		//check if input matches key; change color to red if it doesn't
 		
 		//draw variables
-		graphToBack.setColor(Color.white);
+		graphToBack.setColor(Color.WHITE);
 		for(int row = 0; row < pBoard.getLenRow(); row++) {
 			for(int col = 0; col < pBoard.getLenCol(); col++) {
 				if(pBoard.getNum(row, col) != 0) {
 					String add = "" + pBoard.getNum(row, col);
-					graphToBack.drawString(add, col*110+10, row*110+10);
+					graphToBack.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+					graphToBack.drawString(add, (col)*110+30, (row+1)*110-15);
 				}
 			}
 		}
